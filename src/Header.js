@@ -3,16 +3,15 @@ import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-import AmazonLogo from './amazon-logo.png'
+import AmazonLogo from "./amazon-logo.png";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <Container>
       <HeaderLogo>
-        <img
-          src={
-            AmazonLogo
-          }
-        />
+       <Link to="/">
+       <img src={AmazonLogo} />
+       </Link>
       </HeaderLogo>
       <HeaderSectionDeliver>
         <LocationOnIcon />
@@ -41,10 +40,12 @@ function Header() {
       </HeaderNavItem>
 
       <HeaderCart>
-        <HeaderCartIcon>
-          <ShoppingBasketIcon />
-        </HeaderCartIcon>
-        <HeaderCartCount>4</HeaderCartCount>
+        <Link to="/cart">
+          <HeaderCartIcon>
+            <ShoppingBasketIcon />
+          </HeaderCartIcon>
+          <HeaderCartCount>4</HeaderCartCount>
+        </Link>
       </HeaderCart>
     </Container>
   );
@@ -87,7 +88,7 @@ const HeaderSearch = styled.div`
   overflow: hidden;
   margin-right: 4px;
   background-color: white;
-  :focus-within{
+  :focus-within {
     box-shadow: 0 0 3px #f90;
   }
 `;
@@ -113,15 +114,20 @@ const HeaderOption = styled.div`
   padding: 10px 9px;
 `;
 const HeaderCart = styled.div`
+  display: flex;
+  a {
     display: flex;
     align-items: center;
     margin-right: 11px;
+    color: #fff;
+    text-decoration:none;
+  }
 `;
 const HeaderCartIcon = styled.div`
-    padding-right:9px;
+  padding-right: 9px;
 `;
 const HeaderCartCount = styled.div`
-    padding-right:9px;
-    color: #febd69;
-    font-weight: 700px;
+  padding-right: 9px;
+  color: #febd69;
+  font-weight: 700px;
 `;
